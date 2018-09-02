@@ -13,7 +13,7 @@ class UsersRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,12 @@ class UsersRequest extends Request
     {
         return [
             //
+            'name'=> 'required',
+            'password'=>'required',
+            'email'=>'required',
+            'role_id'=>'required',
+            'is_active'=>'required',
+
         ];
     }
 }
