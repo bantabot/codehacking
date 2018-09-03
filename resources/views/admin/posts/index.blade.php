@@ -31,7 +31,7 @@
                     <td>{{$post->category ? $post->category->name : 'No Category'}}</td>
 
 
-                    <td>{{$post->body}}</td>
+                    <td>{{str_limit($post->body, 40)}}</td>
                     <td>{{$post->created_at->diffForHumans()}}</td>
                     <td>{{$post->updated_at->diffForHumans()}}</td>
                 </tr>

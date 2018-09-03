@@ -123,7 +123,8 @@ class AdminPostsController extends Controller
             $photo = Photo::create(['file'=>$name]);
             $input['photo_id'] = $photo->id;
         }
-        $post->update($input);
+       Auth::user()->post()->whereId($id)->first()->update($input);
+
         return redirect('/admin/posts');
     }
 
@@ -136,5 +137,15 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         //
+        $post=  Post::findOrFail($id);
+
+
+
+        if($post->photo!= null){
+            unlink( '/Applications/MAMP/htdocs'. $post->photo->file );}
+
+
+        $post->delete();
+        return redirect('/admin/posts');
     }
 }
