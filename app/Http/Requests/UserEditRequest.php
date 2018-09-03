@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
-use App\User;
 
-class UsersRequest extends Request
+class UserEditRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +23,12 @@ class UsersRequest extends Request
      */
     public function rules()
     {
-        $rules = [
-            'name' => 'required',
-            'email' => 'required',
-            'role_id' => 'required',
-            'is_active' => 'required'
+        return [
+            //
+            'name'=> 'required',
+            'email'=>'required',
+            'role_id'=>'required',
+            'is_active'=>'required',
         ];
-
-        if ($this->method() == 'POST'){
-            $rules['password'] = 'required';
-        }
-
-        return $rules;
     }
 }
