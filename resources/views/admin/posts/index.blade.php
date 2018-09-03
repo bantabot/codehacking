@@ -4,6 +4,10 @@
 
     <h1>Posts</h1>
 
+
+
+    <div class="row">
+
     <table class="table">
         <thead>
         <tr>
@@ -40,5 +44,6 @@
 
         </tbody>
     </table>
+    </div>
 
     @stop
